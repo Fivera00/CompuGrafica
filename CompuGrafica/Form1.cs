@@ -106,142 +106,83 @@ namespace CompuGrafica
 
         private void ejes3D()
         {
-            /*Segmento3D seg3D1 = new()
-            {
-                x0 = 0,
-                y0 = 0,
-                z0 = 0,
-                xf = 0,
-                yf = 0,
-                zf = 5,
-                color0 = Color.Red
-            };
-
-            //EJE Y 
-            Segmento3D seg3D2 = new()
-            {
-                x0 = 0,
-                y0 = 0,
-                z0 = 0,
-                xf = 0,
-                yf = 5,
-                zf = 0,
-                color0 = Color.Blue
-            };
-
-            //EJE X 
-            Segmento3D seg3D3 = new()
-            {
-                x0 = 0,
-                y0 = 0,
-                z0 = 0,
-                xf = 8,
-                yf = 0,
-                zf = 0,
-                color0 = Color.Black
-            };
-
-            //EJE 4
-            Segmento3D seg3D4 = new()
-            {
-                x0 = 8,
-                y0 = 0,
-                z0 = 0,
-                xf = 8,
-                yf = 5,
-                zf = 0,
-                color0 = Color.Blue
-            };
-
-            //EJE 5
-            Segmento3D seg3D5 = new()
-            {
-                x0 = 0,
-                y0 = 5,
-                z0 = 0,
-                xf = 8,
-                yf = 5,
-                zf = 0,
-                color0 = Color.Red
-            };
-
-            //EJE 6 
-            Segmento3D seg3D6 = new()
-            {
-                x0 = 0,
-                y0 = 5,
-                z0 = 5,
-                xf = 0,
-                yf = 5,
-                zf = 0,
-                color0 = Color.Red
-            };
-
-            //EJE 7 
-            Segmento3D seg3D7 = new()
-            {
-                x0 = 0,
-                y0 = 0,
-                z0 = 5,
-                xf = 0,
-                yf = 5,
-                zf = 5,
-                color0 = Color.Red
-            };
-
-            //EJE 8 
-            Segmento3D seg3D8 = new()
-            {
-                x0 = 0,
-                y0 = 0,
-                z0 = 5,
-                xf = 8,
-                yf = 0,
-                zf = 5,
-                color0 = Color.Red
-            };
-
-            //EJE 9
-            Segmento3D seg3D9 = new()
-            {
-                x0 = 8,
-                y0 = 0,
-                z0 = 0,
-                xf = 8,
-                yf = 0,
-                zf = 5,
-                color0 = Color.Red
-            };
-
-
-            seg3D1.Encender(mapa);
-            seg3D2.Encender(mapa);
-            seg3D3.Encender(mapa);
-            seg3D4.Encender(mapa);
-            seg3D5.Encender(mapa);
-            seg3D6.Encender(mapa);
-            seg3D7.Encender(mapa);
-            seg3D8.Encender(mapa);
-            seg3D9.Encender(mapa);
-            */
-
-            
             Segmento3D xyz = new Segmento3D();
+            //EJE Z1 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf = 8.333;
+            xyz.Encender(mapa);
+            //EJE Z2 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = -13; xyz.yf = -13;
+            xyz.z0 = 0; xyz.zf = 8.333;
+            xyz.Encender(mapa);
+            //EJE Z3 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = 10; xyz.xf = 10;
+            xyz.y0 = -13; xyz.yf = -13;
+            xyz.z0 = 0; xyz.zf = 8.333;
+            xyz.Encender(mapa);
 
+            //EJE Y1 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = -13; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf =0;
+            xyz.Encender(mapa);
+            //EJE Y2 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = 0; xyz.xf = 0;
+            xyz.y0 = -13; xyz.yf = 0;
+            xyz.z0 = 8.333; xyz.zf = 8.333;
+            xyz.Encender(mapa);
+            //EJE Y3 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = 10; xyz.xf = 10;
+            xyz.y0 = -13; xyz.yf = 0;
+            xyz.z0 = 8.333; xyz.zf = 8.333;
+            xyz.Encender(mapa);
+            //EJE Y4 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = 10; xyz.xf = 10;
+            xyz.y0 = -13; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf = 0;
+            xyz.Encender(mapa);
+
+            //EJE X1 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = 0; xyz.xf = 10;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 0; xyz.zf = 0;
+            xyz.Encender(mapa);
+            //EJE X2 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = 0; xyz.xf = 10;
+            xyz.y0 = -13; xyz.yf = -13;
+            xyz.z0 = 0; xyz.zf = 0;
+            xyz.Encender(mapa);
+            //EJE X3 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = 0; xyz.xf = 10;
+            xyz.y0 = -13; xyz.yf = -13;
+            xyz.z0 = 8.333; xyz.zf = 8.333;
+            xyz.Encender(mapa);
+            
+            /*
             //EJE Z1 -> Vertical
             xyz.color0 = Color.Black;
             xyz.x0 = -9; xyz.xf = -9;
             xyz.y0 = 0; xyz.yf = 0;
             xyz.z0 = -7; xyz.zf = 3;
             xyz.Encender(mapa);
-
             //EJE Z2 -> Vertical
             xyz.color0 = Color.Black;
             xyz.x0 = 1; xyz.xf = 1;
             xyz.y0 = 0; xyz.yf = 0;
             xyz.z0 = -7; xyz.zf = 3;
             xyz.Encender(mapa);
-
             //EJE Z3 -> Vertical
             xyz.color0 = Color.Black;
             xyz.x0 = 4.12; xyz.xf = 4.12;
@@ -304,7 +245,7 @@ namespace CompuGrafica
             xyz.y0 = 14; xyz.yf = 14;
             xyz.z0 = -7; xyz.zf = -7;
             xyz.Encender(mapa);
-
+            */
             canvas.Image = mapa;
         }
 
@@ -1313,9 +1254,9 @@ namespace CompuGrafica
             double t = 0, dt = 0.001;
             do
             {
-                vector3D.x0 = 2 + (3 * Math.Cos(t));
+                vector3D.x0 = (t / 3) - 2;
                 vector3D.y0 = 1 + (3 * Math.Sin(t));
-                vector3D.z0 = (t / 3) - 2;
+                vector3D.z0 = 2 + (3 * Math.Cos(t));
                 vector3D.color0 = primario;
                 vector3D.Encender(mapa);
                 t += dt;
