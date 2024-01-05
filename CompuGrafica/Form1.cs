@@ -1,4 +1,5 @@
 using CompuGrafica.Clases;
+using System.Drawing;
 using System.Security.Cryptography.Xml;
 using System.Windows.Forms;
 
@@ -12,11 +13,15 @@ namespace CompuGrafica
         Color primario = Color.FromArgb(0, 0, 0);
         Color[] paleta0 = new Color[16];
 
+        Color[] paletaFuego = new Color[16];
+
         Color[] paleta1 = new Color[16];
+
         public Form1()
         {
             InitializeComponent();
-            ejes();
+            marco();
+            ejes3D();
 
             paleta0[0] = Color.Black;
             paleta0[1] = Color.Navy;
@@ -62,7 +67,7 @@ namespace CompuGrafica
             return result;
         }
 
-        private void ejes()
+        private void marco()
         {
             Segmento s1 = new Segmento();
             s1.x0 = -10;
@@ -96,6 +101,215 @@ namespace CompuGrafica
             s4.color0 = primario;
             s4.Encender(mapa);
 
+            canvas.Image = mapa;
+        }
+
+        private void ejes3D()
+        {
+            /*Segmento3D seg3D1 = new()
+            {
+                x0 = 0,
+                y0 = 0,
+                z0 = 0,
+                xf = 0,
+                yf = 0,
+                zf = 5,
+                color0 = Color.Red
+            };
+
+            //EJE Y 
+            Segmento3D seg3D2 = new()
+            {
+                x0 = 0,
+                y0 = 0,
+                z0 = 0,
+                xf = 0,
+                yf = 5,
+                zf = 0,
+                color0 = Color.Blue
+            };
+
+            //EJE X 
+            Segmento3D seg3D3 = new()
+            {
+                x0 = 0,
+                y0 = 0,
+                z0 = 0,
+                xf = 8,
+                yf = 0,
+                zf = 0,
+                color0 = Color.Black
+            };
+
+            //EJE 4
+            Segmento3D seg3D4 = new()
+            {
+                x0 = 8,
+                y0 = 0,
+                z0 = 0,
+                xf = 8,
+                yf = 5,
+                zf = 0,
+                color0 = Color.Blue
+            };
+
+            //EJE 5
+            Segmento3D seg3D5 = new()
+            {
+                x0 = 0,
+                y0 = 5,
+                z0 = 0,
+                xf = 8,
+                yf = 5,
+                zf = 0,
+                color0 = Color.Red
+            };
+
+            //EJE 6 
+            Segmento3D seg3D6 = new()
+            {
+                x0 = 0,
+                y0 = 5,
+                z0 = 5,
+                xf = 0,
+                yf = 5,
+                zf = 0,
+                color0 = Color.Red
+            };
+
+            //EJE 7 
+            Segmento3D seg3D7 = new()
+            {
+                x0 = 0,
+                y0 = 0,
+                z0 = 5,
+                xf = 0,
+                yf = 5,
+                zf = 5,
+                color0 = Color.Red
+            };
+
+            //EJE 8 
+            Segmento3D seg3D8 = new()
+            {
+                x0 = 0,
+                y0 = 0,
+                z0 = 5,
+                xf = 8,
+                yf = 0,
+                zf = 5,
+                color0 = Color.Red
+            };
+
+            //EJE 9
+            Segmento3D seg3D9 = new()
+            {
+                x0 = 8,
+                y0 = 0,
+                z0 = 0,
+                xf = 8,
+                yf = 0,
+                zf = 5,
+                color0 = Color.Red
+            };
+
+
+            seg3D1.Encender(mapa);
+            seg3D2.Encender(mapa);
+            seg3D3.Encender(mapa);
+            seg3D4.Encender(mapa);
+            seg3D5.Encender(mapa);
+            seg3D6.Encender(mapa);
+            seg3D7.Encender(mapa);
+            seg3D8.Encender(mapa);
+            seg3D9.Encender(mapa);
+            */
+
+            
+            Segmento3D xyz = new Segmento3D();
+
+            //EJE Z1 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = -9; xyz.xf = -9;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = -7; xyz.zf = 3;
+            xyz.Encender(mapa);
+
+            //EJE Z2 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = 1; xyz.xf = 1;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = -7; xyz.zf = 3;
+            xyz.Encender(mapa);
+
+            //EJE Z3 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = 4.12; xyz.xf = 4.12;
+            xyz.y0 = 5; xyz.yf = 5;
+            xyz.z0 = -3.8; xyz.zf = 6.2;
+            xyz.Encender(mapa);
+            //EJE Z4 -> Vertical
+            xyz.color0 = Color.Black;
+            xyz.x0 = -5.9; xyz.xf = -5.9;
+            xyz.y0 = 5; xyz.yf = 5;
+            xyz.z0 = -3.8; xyz.zf = 6.2;
+            xyz.Encender(mapa);
+
+            //EJE Y1 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = -9; xyz.xf = -9;
+            xyz.y0 = 0; xyz.yf = 14;
+            xyz.z0 = -7; xyz.zf = -7;
+            xyz.Encender(mapa);
+            //EJE Y2 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = 1; xyz.xf = 1;
+            xyz.y0 = 0; xyz.yf = 14;
+            xyz.z0 = -7; xyz.zf = -7;
+            xyz.Encender(mapa);
+            //EJE Y3 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = -9; xyz.xf = -9;
+            xyz.y0 = 0; xyz.yf = 14;
+            xyz.z0 = 3; xyz.zf = 3;
+            xyz.Encender(mapa);
+            //EJE Y4 -> Diagonal
+            xyz.color0 = Color.Blue;
+            xyz.x0 = 1; xyz.xf = 1;
+            xyz.y0 = 0; xyz.yf = 14;
+            xyz.z0 = 3; xyz.zf = 3;
+            xyz.Encender(mapa);
+
+            //EJE X1 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = -9; xyz.xf = 1;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = -7; xyz.zf = -7;
+            xyz.Encender(mapa);
+            //EJE X2 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = -9; xyz.xf = 1;
+            xyz.y0 = 0; xyz.yf = 0;
+            xyz.z0 = 3; xyz.zf = 3;
+            xyz.Encender(mapa);
+            //EJE X3 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = -9; xyz.xf = 1;
+            xyz.y0 = 14; xyz.yf = 14;
+            xyz.z0 = 3; xyz.zf = 3;
+            xyz.Encender(mapa);
+            //EJE X4 -> Horizontal
+            xyz.color0 = Color.Red;
+            xyz.x0 = -9; xyz.xf = 1;
+            xyz.y0 = 14; xyz.yf = 14;
+            xyz.z0 = -7; xyz.zf = -7;
+            xyz.Encender(mapa);
+
+            canvas.Image = mapa;
+        }
+
+        private void ejes()
+        {
             Segmento s5 = new Segmento();
             s5.x0 = 0;
             s5.y0 = 8.33;
@@ -150,7 +364,7 @@ namespace CompuGrafica
         {
             mapa = new Bitmap(600, 500);
             canvas.Image = null;
-            ejes();
+            marco();
         }
 
         private void bandera_Click(object sender, EventArgs e)
@@ -439,11 +653,6 @@ namespace CompuGrafica
             canvas.Image = mapa;
         }
 
-        private void ejes_xy_Click(object sender, EventArgs e)
-        {
-            ejes();
-        }
-
         private void practica_curvas_Click(object sender, EventArgs e)
         {
             CurvaV c = new CurvaV();
@@ -542,8 +751,7 @@ namespace CompuGrafica
             {
                 for (int j = 0; j < 500; j++)
                 {
-                    int value = (int)(Math.Cos(i) + (j * j)) % 15;
-                    colorT = Math.Abs(value);
+                    colorT = Math.Abs((int)(Math.Cos(i) + (j * j)) % 15);
 
                     c = paleta0[colorT];
                     mapa.SetPixel(i, j, c);
@@ -575,13 +783,25 @@ namespace CompuGrafica
         {
             int colorT;
             Color c;
+            Color[] paleta = new Color[16];
+
+            for (int i = 0; i < 15; i++)
+            {
+                int r = (int)(4.666666 * i) + 130;
+                int g = (2 * i) + 70;
+                int b = (int)(1.33333 * i) + 30;
+
+                paleta[i] = Color.FromArgb(r, g, b);
+            }
+
             for (int i = 0; i < 600; i++)
             {
                 for (int j = 0; j < 500; j++)
                 {
-                    colorT = Math.Abs((int)(Math.Sqrt(i * i) + Math.Sin(j)) % 15);
+                    colorT = (int)((Math.Sqrt(i + 50.5) + Math.Cos(i) + 10 * j) / 2.3) % 15;
 
-                    c = paleta0[colorT];
+                    c = paleta[colorT];
+                    //c = paleta1[colorT];
                     mapa.SetPixel(i, j, c);
                 }
 
@@ -597,7 +817,7 @@ namespace CompuGrafica
             {
                 for (int j = 0; j < 500; j++)
                 {
-                    colorT = Math.Abs((int)( Math.Sin(i) + 4 * Math.Sin(j * 3.375)) % 15);
+                    colorT = Math.Abs((int)(Math.Sin(i / 10) + 4 * Math.Sin(j * 3.375)) % 15);
 
                     c = paleta0[colorT];
                     mapa.SetPixel(i, j, c);
@@ -615,7 +835,7 @@ namespace CompuGrafica
             {
                 for (int j = 0; j < 500; j++)
                 {
-                    colorT = Math.Abs((int)(i * Math.Pow(j, 2) + Math.Pow(i,2) - j) % 15);
+                    colorT = Math.Abs((int)(i * Math.Pow(j, 2) + Math.Pow(i, 2) - j) % 15);
 
                     c = paleta0[colorT];
                     mapa.SetPixel(i, j, c);
@@ -687,7 +907,7 @@ namespace CompuGrafica
             {
                 for (int j = 0; j < 500; j++)
                 {
-                    colorT = Math.Abs((int)( Math.Sin(i) + 3 * Math.Sin(j * i * 3.14165 + Math.Sqrt(i+j))) );
+                    colorT = Math.Abs((int)(Math.Sin(i) + 3 * Math.Sin(j * i * 3.14165 + Math.Sqrt(i + j))));
 
                     c = paleta0[colorT];
                     mapa.SetPixel(i, j, c);
@@ -695,6 +915,423 @@ namespace CompuGrafica
 
             }
             canvas.Image = mapa;
+        }
+
+        private void fuego_Click(object sender, EventArgs e)
+        {
+            paletaFuego[0] = Color.FromArgb(236, 13, 13);
+            paletaFuego[1] = Color.FromArgb(236, 107, 0);
+            paletaFuego[2] = Color.FromArgb(240, 127, 32);
+            paletaFuego[3] = Color.FromArgb(214, 161, 61);
+            paletaFuego[4] = Color.FromArgb(244, 192, 28);
+            paletaFuego[5] = Color.FromArgb(212, 193, 193);
+
+            int colorT;
+            Color c;
+
+            for (int i = 0; i < 600; i++)
+            {
+                for (int j = 0; j < 500; j++)
+                {
+                    double flameIntensity = Math.Sin((i * 0.02) + Math.Cos(j * 0.02));
+                    colorT = (int)((flameIntensity + 1) * 16 / 2) % 6;
+
+                    c = paletaFuego[colorT];
+                    mapa.SetPixel(i, j, c);
+                }
+            }
+            canvas.Image = mapa;
+        }
+
+        private void jean_Click(object sender, EventArgs e)
+        {
+            Color[] paletaJean = new Color[16];
+
+            for (int a = 0; a <= 15; a++)
+            {
+                paletaJean[a] = Color.FromArgb((int)(30 - (1.5 * a)), (int)(50 - (2.0 * a)), (int)(70 - (2.0 * a)));
+
+            }
+
+            int colorT;
+            Color c;
+            for (int i = 0; i < 600; i++)
+            {
+                for (int j = 0; j < 500; j++)
+                {
+
+                    colorT = (int)(((Math.Sin(i + Math.PI) % 16 - Math.Cos(j % 16)) + Math.Pow(i, 5)) % 16);
+                    c = paletaJean[colorT];
+                    mapa.SetPixel(i, j, c);
+                }
+
+            }
+
+            canvas.Image = mapa;
+        }
+
+        private void cesped_Click(object sender, EventArgs e)
+        {
+            Color[] paletaCesped = new Color[16];
+            int colorT;
+            Color c;
+
+            //Cargar paleta de colores
+            for (int k = 0; k < 15; k++)
+            {
+                paletaCesped[k] = Color.FromArgb((int)(126 - (4.87 * k)), (int)(217 - (7.53 * k)), (int)(87 - (2.8 * k)));
+            }
+
+            //Dibujar textura
+            for (int i = 0; i < 600; i++)
+            {
+                for (int j = 0; j < 500; j++)
+                {
+                    colorT = (int)((Math.Pow(i / 4, 3) + Math.Pow(j / 2.5, 2)) % 15 + 1) * (int)((Math.Sqrt(Math.Pow(i * 3.7, 2) + Math.Pow(j * 3.7, 2))) + (i * i * 4 + j + j * 2.7)) % 15;
+                    c = paletaCesped[colorT];
+                    mapa.SetPixel(i, j, c);
+                }
+            }
+
+            canvas.Image = mapa;
+        }
+
+        private void madera_Click(object sender, EventArgs e)
+        {
+            Color[] paletaMadera = new Color[16];
+            int colorT;
+            Color c;
+
+            for (int x = 0; x < 16; x++)
+            {
+                int r = (int)(4.66 * x + 130);
+                int g = (int)(2 * x + 70);
+                int b = (int)(1.33 * x + 30);
+                paletaMadera[x] = Color.FromArgb(r, g, b);
+            }
+
+            int cs = 0;
+            for (int j = 0; j < 600; j++)
+            { //vertical
+                for (int i = 0; i < 500; i++)
+                { //horizontal
+                    cs = cs + 3;
+                    colorT = (int)(((j + cs)) / Math.Log(cs) % 15);
+                    c = paletaMadera[colorT];
+                    mapa.SetPixel(j, i, c);
+
+                }
+            }
+            canvas.Image = mapa;
+
+        }
+
+        private async void ejercicio1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurvaV curva2 = new CurvaV();
+            curva2.tipo = 1;
+            curva2.rd = 2;
+            curva2.x0 = 3;
+            curva2.y0 = -1;
+            curva2.color0 = Color.Blue;
+            curva2.Encender(mapa);
+
+            CurvaV curva3 = new CurvaV();
+            curva3.tipo = 2;
+            curva3.rd = 2;
+            curva3.x0 = -5;
+            curva3.y0 = -1;
+            curva3.color0 = Color.Red;
+            curva3.Encender(mapa);
+
+            canvas.Image = mapa;
+            await Task.Delay(1000);
+            curva3.Apagar(mapa);
+            canvas.Image = mapa;
+            await Task.Delay(1000);
+            curva2.Apagar(mapa);
+            canvas.Image = mapa;
+        }
+
+        private async void pruebaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Circunferencia vec = new Circunferencia();
+            double t = -8, dt = 0.1;
+            vec.rd = 0.25;
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = -(Math.Pow(t, 2) + (10 * t) + 16) / 2.25;
+                vec.color0 = Color.Green;
+                vec.Encender(mapa);
+                t += dt;
+            } while (t <= -2);
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = (4 - Math.Pow(t, 2)) / 1.333;
+                vec.color0 = Color.Red;
+                vec.Encender(mapa);
+                t += dt;
+            } while (t <= 2);
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = -(t * t - 6 * t + 8) / 0.5;
+                vec.color0 = Color.Black;
+                vec.Encender(mapa);
+                t = t + dt;
+            } while (t <= 4);
+            canvas.Image = mapa;
+
+        }
+
+        private async void parabola_Click(object sender, EventArgs e)
+        {
+            Circunferencia vec = new Circunferencia();
+            double t = -8, dt = 0.1;
+            vec.rd = 0.25;
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = -(Math.Pow(t, 2) + (10 * t) + 16) / 2.25;
+                vec.color0 = Color.Green;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                await Task.Delay(20);
+                vec.Apagar(mapa);
+                t += dt;
+
+            } while (t <= -2);
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = (4 - Math.Pow(t, 2)) / 1.333;
+                vec.color0 = Color.Red;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                await Task.Delay(20);
+                vec.Apagar(mapa);
+                t += dt;
+
+            } while (t <= 2);
+            do
+            {
+                vec.x0 = t;
+                vec.y0 = -(t * t - 6 * t + 8) / 0.5;
+                vec.color0 = Color.Black;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                await Task.Delay(20);
+                vec.Apagar(mapa);
+
+                t = t + dt;
+
+            } while (t <= 4);
+            canvas.Image = mapa;
+        }
+
+        private void reflexion_Click(object sender, EventArgs e)
+        {
+            Segmento seg = new Segmento();
+            seg.color0 = Color.Black;
+            seg.x0 = 1;
+            seg.xf = -5;
+            seg.y0 = 1;
+            seg.yf = -6;
+            seg.Encender(mapa);
+
+            seg.color0 = Color.Red;
+            seg.x0 = -10;
+            seg.y0 = -0.23;
+            seg.Encender(mapa);
+
+            canvas.Image = mapa;
+        }
+
+        private async void movReflexionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Circunferencia vec = new Circunferencia();
+            double t = 0, dt = 0.01;
+            vec.rd = 0.25;
+            do
+            {
+                vec.x0 = (1 * (1 - t)) + (8 * t);
+                vec.y0 = (1 * (1 - t)) + (25 / 3 * t);
+                vec.color0 = Color.Green;
+                vec.Encender(mapa);
+                await Task.Delay(20);
+                vec.Apagar(mapa);
+
+                t += dt;
+
+            } while (t <= 1);
+
+            canvas.Image = mapa;
+        }
+
+        private void ejemplo1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vector vec = new Vector();
+            double x = -8, dx = 0.002;
+
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = 3 * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.Green;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+            x = -8;
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = 6 * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.Red;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+            x = -8;
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = 8 * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.Black;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+            x = -8;
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = (-4) * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.Fuchsia;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+            x = -8;
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = (-7) * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.Orange;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+            x = -8;
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = (5.53) * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.DarkTurquoise;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+            x = -8;
+            do
+            {
+                vec.x0 = x;
+                vec.y0 = (-8.66) * Math.Pow(Math.E, (-4 * x));
+                vec.color0 = Color.DarkRed;
+                vec.Encender(mapa);
+                canvas.Image = mapa;
+                x += dx;
+
+            } while (x <= 8);
+
+            canvas.Image = mapa;
+        }
+
+        private async void p2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Segmento seg = new Segmento();
+            seg.color0 = Color.Black;
+            seg.x0 = -1;
+            seg.xf = 5;
+            seg.y0 = 0;
+            seg.yf = 8.333;
+            seg.Encender(mapa);
+
+            seg.color0 = Color.Red;
+            seg.x0 = 10;
+            seg.y0 = 1.39;
+            seg.Encender(mapa);
+
+            Circunferencia c = new Circunferencia();
+            c.rd = 0.2;
+            double t = 0;
+            do
+            {
+                c.x0 = (-1 * (1 - t)) + (5 * t);
+                c.y0 = (0 * (1 - t)) + (8.33 * t);
+                c.color0 = Color.Black;
+                c.Encender(mapa);
+                canvas.Image = mapa;
+                canvas.Refresh();
+                await Task.Delay(100);
+                c.Apagar(mapa);
+                canvas.Image = mapa;
+                t += 0.2;
+            } while (t <= 1);
+
+            t = 0;
+            do
+            {
+                c.x0 = (5 * (1 - t)) + (10 * t);
+                c.y0 = (8.33 * (1 - t)) + (1.39 * t);
+                c.color0 = Color.Red;
+                c.Encender(mapa);
+                canvas.Image = mapa;
+                canvas.Refresh();
+                await Task.Delay(100);
+                c.Apagar(mapa);
+                canvas.Image = mapa;
+                t += 0.2;
+            } while (t <= 1);
+
+
+            canvas.Image = mapa;
+        }
+
+        private void practicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Vector3D vector3D = new Vector3D();
+            double t = 0, dt = 0.001;
+            do
+            {
+                vector3D.x0 = 2 + (3 * Math.Cos(t));
+                vector3D.y0 = 1 + (3 * Math.Sin(t));
+                vector3D.z0 = (t / 3) - 2;
+                vector3D.color0 = primario;
+                vector3D.Encender(mapa);
+                t += dt;
+            } while (t <= 15);
+            canvas.Image = mapa;
+
+        }
+
+        private void ejesXY_Click(object sender, EventArgs e)
+        {
+            ejes();
+        }
+
+        private void ejesXYZ_Click(object sender, EventArgs e)
+        {
+            ejes3D();
         }
     }
 }

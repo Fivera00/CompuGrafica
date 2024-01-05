@@ -31,11 +31,12 @@ namespace CompuGrafica.Clases
         {
             double t = 0;
             double dt = 0.0001;
-            Vector v = new Vector(0, 0, Color.White);
+            Vector v = new Vector(0, 0, color0);
             do
             {
                 v.x0 = (x0 + (xf - x0) * t);
                 v.y0 = (y0 + (yf - y0) * t);
+                v.color0 = Color.White;
                 v.Apagar(canva);
                 t += dt;
             } while (t <= 1);

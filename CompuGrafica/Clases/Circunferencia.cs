@@ -39,6 +39,7 @@ namespace CompuGrafica.Clases
             {
                 v.x0 = x0 + (rd * (Math.Cos(t)));
                 v.y0 = y0 + (rd * (Math.Sin(t)));
+                v.color0 = Color.White;
                 v.Apagar(canva);
                 t += dt;
             } while (t <= (2 * Math.PI));

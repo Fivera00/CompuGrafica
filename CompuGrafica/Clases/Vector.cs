@@ -17,9 +17,14 @@ namespace CompuGrafica.Clases
         public static int sx2 = 600;
         public static int sy2 = 500;
 
+
+        //private double x1 = -2.5, x2 = 2.5;
+
         private double x1 = -10, x2 = 10;
+
         // private double y1 = -5, y2 = 5; 
         private double y1 = -8.333, y2 = 8.333; //dimesion proporcional  
+        //private double y1 = -2.085, y2 = 2.085; //dimesion proporcional  
 
         public Vector()
         {
@@ -36,6 +41,13 @@ namespace CompuGrafica.Clases
         {
             sx = (int)(((x - x1) / (x1 - x2)) * (sx1 - sx2)) + sx1;
             sy = (int)(((y - y2) / (y2 - y1)) * (sy1 - sy2)) + sy1;
+        }
+
+        public void Axonometria(double x0, double y0, double z0, out double ax, out double ay)
+        {
+            //double alpha = Math.PI / 4;
+            ax = x0 + (0.5) * y0 * Math.Cos(0.8);
+            ay = z0 + (0.5) * y0 * Math.Sin(0.8);
         }
 
         public void Encender(Bitmap canva)
